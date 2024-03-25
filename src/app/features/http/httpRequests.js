@@ -28,6 +28,7 @@ export const getSubredditPosts = async (subreddit) => {
     }
   });
   const data = await response.json();
+  console.log(data.data.children.map(post => post.data));
   return data.data.children.map(post => post.data);
 };
 
@@ -40,4 +41,23 @@ export const getPostsByString = async (searchString) => {
     });
     const data = await response.json();
     return data.data.children.map(post => post.data);
-  };
+};
+
+
+export async function getComments(postId) {
+  const url = `https://oauth.reddit.com/comments/${postId}`;;
+  try {
+    const accessToken = await getAccessToken();
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json'
+      }
+    })
+    const data = await response.json();
+    return data[1].data.children.map(comment => comment.data);
+  } catch (error) {
+    console.error('Error al obtener los comentarios:', error);
+  }
+}

@@ -17,44 +17,43 @@ export const loadSubredit = createAsyncThunk(
     }
 )
 
-const postSlices = createSlice(
-    {
-        name: "posts",
-        initialState: {
-          posts: [],
-          isLoading: false,
-          hasError: false
-        },
-        reducers: {},
-        extraReducers: {
-          [searchPost.pending]: (state, action) => {
-            state.isLoading = true;
-            state.hasError = false;
-          },
-          [searchPost.fulfilled]: (state, action) => {
-            state.posts = action.payload;
-            state.isLoading = false;
-            state.hasError = false;
-          },
-          [searchPost.rejected]: (state, action) => {
-            state.isLoading = false;
-            state.hasError = true;
-          },
-          [loadSubredit.pending]: (state, action) => {
-            state.isLoading = true;
-            state.hasError = false;
-          },
-          [loadSubredit.fulfilled]: (state, action) => {
-            state.posts = action.payload;
-            state.isLoading = false;
-            state.hasError = false;
-          },
-          [loadSubredit.rejected]: (state, action) => {
-            state.isLoading = false;
-            state.hasError = true;
-          }
-        }
-      }
-);
+const postSlices = createSlice({
+    name: "posts",
+    initialState: {
+      posts: [],
+      isLoading: false,
+      hasError: false
+    },
+    reducers: {},
+    extraReducers: (builder) => {
+      builder
+        .addCase(searchPost.pending, (state) => {
+          state.isLoading = true;
+          state.hasError = false;
+        })
+        .addCase(searchPost.fulfilled, (state, action) => {
+          state.posts = action.payload;
+          state.isLoading = false;
+          state.hasError = false;
+        })
+        .addCase(searchPost.rejected, (state) => {
+          state.isLoading = false;
+          state.hasError = true;
+        })
+        .addCase(loadSubredit.pending, (state) => {
+          state.isLoading = true;
+          state.hasError = false;
+        })
+        .addCase(loadSubredit.fulfilled, (state, action) => {
+          state.posts = action.payload;
+          state.isLoading = false;
+          state.hasError = false;
+        })
+        .addCase(loadSubredit.rejected, (state) => {
+          state.isLoading = false;
+          state.hasError = true;
+        });
+    }
+  });
 
 export default postSlices.reducer;

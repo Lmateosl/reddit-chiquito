@@ -1,0 +1,26 @@
+.container {
+    width: 80%;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.container:hover {
+    -webkit-box-shadow: 2px 2px 8px 1px #6B6B6B; 
+    box-shadow: 2px 2px 8px 1px #6B6B6B;
+}
+
+.post {
+    width: 100%; 
+    background-color: whitesmoke;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.post:hover {
+    box-shadow: 2px 2px 4px 1px #6B6B6B;
+}
