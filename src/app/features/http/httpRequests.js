@@ -1,5 +1,5 @@
-const clientId = 'I7HT7ZM5Nw4Z_RxtnI1OmQ';
-const clientSecret = 'K8bM3AeRHG6qhQVUP_GiZ951V7sP_Q';
+const clientId = '';
+const clientSecret = '';
 const accessTokenUrl = 'https://www.reddit.com/api/v1/access_token';
 const subredditUrl = 'https://oauth.reddit.com/r/{subreddit}/hot';
 
