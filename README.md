@@ -1,3 +1,7 @@
+# Reddit Chiquito
+
+This is just a Reddit Client, which shows post and his comments and let the user to search for a post or subreddit.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

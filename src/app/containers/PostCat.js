@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadSubredit } from "../features/postSlice";
 import Posts from "../components/Posts";
+import Categorie from "./Categorie";
 import { Grid, Skeleton } from "@mui/material";
 
 export default function PostCat() {
@@ -19,20 +20,21 @@ export default function PostCat() {
 
     return(
         <div style={{padding: '40px 10px', width:"90%", margin: "auto"}}>
-            {isLoading ? 
-                <div style={{width: "50%", margin: "40"}}>
-                    <Skeleton variant="rounded" width="100%" height={200} style={{marginBottom: 20}}/>
-                    <Skeleton variant="rounded" width="100%" height={200} />
-                </div>
-                :
-                <Grid container spacing={2}>
-                    <Grid xs={8}>
-                        <Posts posts={posts} />
-                    </Grid>
-                    <Grid xs={4}>
-                    </Grid>
+            <Grid container spacing={2}>
+                <Grid xs={8}>
+                    {isLoading ? 
+                    <div style={{width: "80%", margin: "40"}}>
+                        <Skeleton variant="rounded" width="100%" height={200} style={{marginBottom: 20}}/>
+                        <Skeleton variant="rounded" width="100%" height={200} />
+                    </div>
+                    :
+                    <Posts posts={posts} />
+                    }
                 </Grid>
-            }
+                <Grid xs={4}>
+                    <Categorie />
+                </Grid>
+            </Grid>
         </div>
     );
 }

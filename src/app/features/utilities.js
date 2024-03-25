@@ -10,3 +10,6 @@ export function tiempoDesde(epoch) {
     }
   }
   
+export const arraySubreddits = [
+  'Dog', 'Pizza', 'Ecuador', 'Futbol', 'IceCream', 'Maquillaje', 'Messi', 'Fortnite', 'Apex', 'Tesla'
+]

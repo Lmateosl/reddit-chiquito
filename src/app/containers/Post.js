@@ -26,7 +26,7 @@ export default function Post({
         } else {
             setCommentsShow(true);
             setCommentsLoading(false);
-            const data = await getComments(idPost)
+            const data = await getComments(idPost);
             console.log(data);
             setCommentsData(data);
             setCommentsLoading(true);
